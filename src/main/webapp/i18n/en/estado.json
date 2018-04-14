@@ -1,0 +1,10 @@
+{
+    "jhipsterSampleApplicationApp": {
+        "Estado" : {
+            "null": "",
+            "OK": "OK",
+            "KO": "KO",
+            "NA": "NA"
+        }
+    }
+}
