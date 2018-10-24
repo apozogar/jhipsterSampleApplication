@@ -1,0 +1,35 @@
+
+
+entity Error {
+    name String,
+	description String,
+    typeError TypeError
+}
+
+entity TypeError {
+	name String,
+    solution String
+}
+
+entity User {
+	uid String,
+	firstName String,
+	lastName String,
+	email String
+}
+
+entity Profile {
+	name String
+}
+
+relationship OneToMany {
+	User{profile} to Profile
+}
+
+relationship OneToMany {
+	Error{typeError} to TypeError
+}
+
+relationship ManyToMany {
+  Error{user} to User{error}
+}
