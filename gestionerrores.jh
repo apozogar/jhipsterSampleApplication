@@ -1,14 +1,16 @@
 
-
-entity Error {
-    name String,
-	description String,
-    typeError TypeError
+entity Project{
+	name String
 }
 
 entity TypeError {
 	name String,
     solution String
+}
+
+
+entity Profile {
+	name String
 }
 
 entity User {
@@ -18,18 +20,23 @@ entity User {
 	email String
 }
 
-entity Profile {
-	name String
+entity Error {
+    name String,
+	description String
 }
 
 relationship OneToMany {
-	User{profile} to Profile
-}
-
-relationship OneToMany {
+	User{profile} to Profile,	
+	Error{project} to Project,
 	Error{typeError} to TypeError
 }
 
 relationship ManyToMany {
   Error{user} to User{error}
 }
+
+// Set pagination options
+paginate User, Error with infinite-scroll
+
+// Set service options to all except few
+service all with serviceImpl
